@@ -1,0 +1,53 @@
+{
+    "countriesFacts": [
+        {
+            "name": "India",
+            "capital": "New Delhi",
+            "population": "14,000,000",
+            "area": "3,287,263",
+            "fact": "India is the most populous country in the world with a population of 1.3 billion",
+            "image": "https://i.pinimg.com/736x/a9/f9/98/a9f998cfb6a66671a62f0b378456edfd.jpg"
+        },
+        {
+            "name": "United States",
+            "capital": "Washington, D.C.",
+            "population": "329,000,000",
+            "area": "9,833,520",
+            "fact": "The United States of America is the world's second largest country by population, with over 329 million residents",
+            "image": "https://i.pinimg.com/736x/1a/69/87/1a698731b96c6a9b200905f938878ea1.jpg"
+        },
+        {
+            "name": "Brazil",
+            "capital": "Brasília",
+            "population": "210,000,000",
+            "area": "8,515,767",
+            "fact": "Brazil is the world's fifth largest country by population, with a population of 210 million people",
+            "image": "https://i.pinimg.com/736x/13/09/bd/1309bd80f1d58fbf0671dae31bbd6c16.jpg"
+        },
+        {
+            "name": "Russia",
+            "capital": "Moscow",
+            "population": "146,000,000",
+            "area": "17,098,242",
+            "fact": "Russia is the world's third largest country by population, with a population of 146 million people",
+            "image": "https://i.pinimg.com/736x/35/0b/cc/350bcc9117a8bf46e3e6dbb8463f2aa2.jpg"
+        },
+        {
+            "name": "China",
+            "capital": "Beijing",
+            "population": "1,400,000,000",
+            "area": "9,596,961",
+            "fact": "China is the world's most populous country, with a population of 1.4 billion people",
+            "image": "https://i.pinimg.com/736x/df/90/e3/df90e392f1e76e8eccfce705d4f0aaee.jpg"
+        },
+        {
+            "name": "Pakistan",
+            "capital": "Islamabad",
+            "population": "216,000,000",
+            "area": "796,095",
+            "fact": "Pakistan is the world's fifth most populous country, with a population of 216 million people",
+            "image": "https://i.pinimg.com/736x/b2/f7/58/b2f758ed15f506237868a5d32cab0bcb.jpg"
+        }
+    ]
+}
+

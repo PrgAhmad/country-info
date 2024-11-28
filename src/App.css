@@ -1,0 +1,9 @@
+#root{
+    background-color: black;
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+}
+.active{
+    color: #2563eb;
+}
