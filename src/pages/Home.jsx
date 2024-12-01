@@ -7,7 +7,7 @@ export const Home = () => {
       <HomeMain />
       <section className="my-8 flex flex-col items-center gap-8">
         <div>
-          <h2 className="text-white text text-2xl font-semibold text-center">
+          <h2 className="px-3 text-white text text-2xl font-semibold text-center">
             Here are the Interesting Facts <br /> We're Proud of
           </h2>
         </div>

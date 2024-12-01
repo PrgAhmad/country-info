@@ -1,9 +1,8 @@
 import {
   createBrowserRouter,
-  createRoutesFromElements,
-  Route,
   RouterProvider,
 } from "react-router-dom";
+import { ContextProvider } from "./ContextApi";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
@@ -26,7 +25,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    // <ContextProvider.Provider>
+      <RouterProvider router={router} />
+    // </ContextProvider.>
+  );
 }
 
 export default App;

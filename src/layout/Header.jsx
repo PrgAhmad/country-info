@@ -25,7 +25,7 @@ export const Header = () => {
           return (
             <NavLink
               to={`/${menu.toLowerCase() === "home" ? "" : menu.toLowerCase()}`}
-              className="hover:text-blue-600 text-sm"
+              className="hover:text-blue-600 text-md"
             >
               {menu}
             </NavLink>
