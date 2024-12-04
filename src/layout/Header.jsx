@@ -9,9 +9,9 @@ export const Header = () => {
   const menus = ["Home", "About", "Contact", "Country"];
 
   return (
-    <nav className="bg-[#232323] w-full px-6 lg:px-[14rem] md:h-[4rem] text-white flex justify-between items-center sm:flex-nowrap flex-wrap h-full gap-4 py-4">
+    <nav className="fixed z-50 bg-[#232323] w-full px-6 lg:px-[14rem] md:h-[4rem] text-white flex justify-between items-center sm:flex-nowrap flex-wrap min-h-[4rem] gap-4 py-4">
       <span className="w-full flex justify-between items-center">
-        <h1 className="text-xl font-semibold tracking-wide">WorldAtlas</h1>
+        <h1 className="text-2xl font-semibold tracking-wide">WorldAtlas</h1>
         <span onClick={() => setMenu(!menu)}>
           {menu ? (
             <FaPlus className="sm:hidden text-3xl rotate-45" />
@@ -25,7 +25,7 @@ export const Header = () => {
           return (
             <NavLink
               to={`/${menu.toLowerCase() === "home" ? "" : menu.toLowerCase()}`}
-              className="hover:text-blue-600 text-md"
+              className="hover:text-blue-600 text-md font-semibold"
             >
               {menu}
             </NavLink>

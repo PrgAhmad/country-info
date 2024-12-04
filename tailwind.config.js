@@ -55,7 +55,6 @@ export default {
         "Segoe UI Symbol",
         "Noto Color Emoji",
       ],
-      ubunto: ["Ubuntu", "sans-serif"],
     },
   },
   plugins: [],
