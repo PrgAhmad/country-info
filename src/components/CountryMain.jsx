@@ -11,11 +11,11 @@ export const CountryMain = ({ item }) => {
   const mapsLink = maps.googleMaps;
 
   return (
-    <div
-      className={`text-white text-sm w-[21rem] px-4 py-8 bg-[#585f72] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-600 hover:border-gray-400 hover:scale-105 transition-all duration-300 ease-linear cursor-pointer pb-16 relative`}
-    >
+    <div className="text-white text-sm w-[21rem] px-4 py-8 bg-[#585f72] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-600 hover:border-gray-400 hover:scale-105 transition-all duration-300 ease-linear cursor-pointer pb-16 relative">
       <div className="flex justify-between gap-2">
-        <h3 className="text-[1.65rem] font-medium mb-4">{countryName}</h3>
+        <h3 className="text-[1.65rem] leading-8 font-medium mb-4">
+          {countryName}
+        </h3>
         <img
           src={flagsImage}
           alt=""
@@ -23,7 +23,7 @@ export const CountryMain = ({ item }) => {
           className="h-[3.2rem] w-[5.5rem]"
         />
       </div>
-      <p className="flex flex-col text-[1.1rem]">
+      <p className="flex flex-col text-[1.2rem]">
         <span className="text-gray-400 text-[0.78rem]">Capital</span>
         {capitalName}
       </p>
@@ -34,10 +34,13 @@ export const CountryMain = ({ item }) => {
         </span>
         {population}
       </p>
-      <p className="flex flex-col text-[1.1rem] my-3">
+      <p className="flex flex-col text-[1.2rem] my-3">
         <span className="text-gray-400 text-[0.78rem]">Area</span>
         <p>
-          {area} <span className="text-[0.7rem]">Sqft</span>
+          {area}{" "}
+          <span className="text-[0.7rem]">
+            Km<sup>2</sup>
+          </span>
         </p>
       </p>
       <div className="w-[90%] flex items-center justify-between absolute bottom-4">

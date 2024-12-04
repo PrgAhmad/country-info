@@ -19,7 +19,7 @@ export const CountryHome = () => {
                   className="h-[3rem] w-[5rem]"
                 />
               </div>
-              <p className="flex flex-col text-[1.1rem]">
+              <p className="flex flex-col text-[1.2rem]">
                 <span className="text-gray-400 text-[0.78rem]">Capital</span>
                 {capital}
               </p>
@@ -29,10 +29,10 @@ export const CountryHome = () => {
                 </span>
                 {population}
               </p>
-              <p className="flex flex-col text-[1.1rem] mt-3">
+              <p className="flex flex-col text-[1.2rem] mt-3">
                 <span className="text-gray-400 text-[0.78rem]">Area</span>
                 <p>
-                  {area} <span className="text-[0.7rem]">Sqft</span>
+                  {area} <span className="text-[0.7rem]">Km<sup>2</sup></span>
                 </p>
               </p>
               <p className="mt-8 italic text-white p-2 rounded-md bg-[#48484864] border-[#6e6e6ec8] border-[0.2px] text-[0.9rem] h-auto w-full tracking-wide">
