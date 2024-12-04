@@ -1,12 +1,21 @@
 import { NavLink } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa6";
+import { IoHome } from "react-icons/io5";
+import { FaUser } from "react-icons/fa";
+import { IoCall } from "react-icons/io5";
+import { FaGlobe } from "react-icons/fa";
 
 import { useState } from "react";
 
 export const Header = () => {
   const [menu, setMenu] = useState(false);
-  const menus = ["Home", "About", "Contact", "Country"];
+  const menus = [
+    { name: "Home", icon: <IoHome className="text-[1rem]" /> },
+    { name: "About", icon: <FaUser /> },
+    { name: "Contact", icon: <IoCall className="text-[1rem]" /> },
+    { name: "Country", icon: <FaGlobe /> },
+  ];
 
   return (
     <nav className="fixed z-50 bg-[#232323] w-full px-6 lg:px-[14rem] md:h-[4rem] text-white flex justify-between items-center sm:flex-nowrap flex-wrap min-h-[4rem] gap-4 py-4">
@@ -20,14 +29,19 @@ export const Header = () => {
           )}
         </span>
       </span>
-      <span className="hidden sm:flex gap-4">
+      <span className="hidden sm:flex gap-6">
         {menus.map((menu) => {
           return (
             <NavLink
-              to={`/${menu.toLowerCase() === "home" ? "" : menu.toLowerCase()}`}
-              className="hover:text-blue-600 text-md font-semibold"
+              to={`/${
+                menu.name.toLowerCase() === "home"
+                  ? ""
+                  : menu.name.toLowerCase()
+              }`}
+              className="flex gap-2 items-center hover:text-blue-600 text-md font-semibold"
             >
-              {menu}
+              <span>{menu.icon}</span>
+              {menu.name}
             </NavLink>
           );
         })}
@@ -40,10 +54,18 @@ export const Header = () => {
         {menus.map((menu) => {
           return (
             <NavLink
-            to={`/${menu.toLowerCase() === "home" ? "" : menu.toLowerCase()}`}
-            className="hover:text-blue-600"
+              to={`/${
+                menu.name.toLowerCase() === "home"
+                  ? ""
+                  : menu.name.toLowerCase()
+              }`}
+              className="hover:text-blue-600 text-md font-semibold"
             >
-              {menu}
+              <div className="flex gap-2 items-center justify-start w-[5rem]">
+                {" "}
+                <span>{menu.icon}</span>
+                {menu.name}
+              </div>
             </NavLink>
           );
         })}
