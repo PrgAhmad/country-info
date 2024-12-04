@@ -11,9 +11,9 @@ import { useState } from "react";
 export const Header = () => {
   const [menu, setMenu] = useState(false);
   const menus = [
-    { name: "Home", icon: <IoHome className="text-[1rem]" /> },
+    { name: "Home", icon: <IoHome className="text-[1rem]"/> },
     { name: "About", icon: <FaUser /> },
-    { name: "Contact", icon: <IoCall className="text-[1rem]" /> },
+    { name: "Contact", icon: <IoCall className="text-[1rem]"/> },
     { name: "Country", icon: <FaGlobe /> },
   ];
 
