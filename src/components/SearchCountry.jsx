@@ -2,7 +2,7 @@ import { FaSearch } from "react-icons/fa";
 
 export const SearchCountry = ({setSorting, search, setSearch, setRegion, totalCountries}) => {
   return (
-    <div className="flex justify-between mb-12 md:px-[14rem] sm:flex-row flex-col gap-4 px-3 items-center">
+    <div className="flex justify-between mb-12 sm:px-16 lg:px-[14rem] sm:flex-row flex-col gap-4 px-3 items-center">
       <div className="flex items-center justify-between px-3 outline-none text-[1.2rem] bg-[#585f72] bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border-gray-600 hover:border-gray-400 border border-[#6e6e6ec8] text-white text-sm placeholder:text-[#6e6e6ec8] placeholder:text-[1rem] rounded-md h-[2.8rem]">
         <input
           type="text"

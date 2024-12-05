@@ -39,4 +39,21 @@
       box-shadow: -38px 0 , -14px 0, 14px 0 , 38px -12px;
     }
   }
+  .animate{
+    animation-name: scaling;
+    animation-delay: 200ms;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+    translate: 7rem;
+    animation-fill-mode: forwards;
+  }
   
+  @keyframes scaling {
+    0% {
+      translate: 7rem;
+    }
+    
+    100% {
+      translate: 0;    
+    }
+  }

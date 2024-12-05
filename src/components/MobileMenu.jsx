@@ -13,31 +13,30 @@ export const MobileMenu = ({ menu, scrollToTop }) => {
   return (
     <>
       <span
-        className={`absolute z-40 left-0 top-[4rem] ${menu ? "block" : "hidden"} h-[90vh] w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 
+        className={`absolute z-40 left-0 top-[4rem] ${menu ? "block" : "hidden"} h-[90vh] w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 transition-all duration-[500ms] ease-in-out
 `}
       ></span>
       <span
         className={`absolute z-50 top-[4rem] ${
-          menu ? "right-0" : "right-[-15rem]"
-        } flex sm:hidden  gap-4 none w-screen h-[90vh]  transition-right duration-500 linear`}
+          menu ? "right-[-5rem]" : "right-[-40rem]"
+        } flex sm:hidden  gap-4 none  h-[90vh]  transition-all duration-[500ms] ease-in-out`}
       >
-        <span className="w-full h-full bg-transparent"></span>
-        <span className="bg-[#232323] flex flex-col gap-4 py-4 justify-start w-[15rem] pl-4">
-          {menus.map((menu) => {
+        <span className="bg-[#232323] flex flex-col gap-4 py-4 justify-start w-[20rem] pl-8">
+          {menus.map((opt) => {
             return (
               <NavLink
                 to={`/${
-                  menu.name.toLowerCase() === "home"
+                  opt.name.toLowerCase() === "home"
                     ? ""
-                    : menu.name.toLowerCase()
+                    : opt.name.toLowerCase()
                 }`}
                 onClick={scrollToTop}
                 className="hover:text-blue-600 hover:scale-110 font-semibold"
               >
-                <div className="flex gap-2 items-center justify-start w-[5rem]">
+                <div className={` ${menu && "animate"} flex gap-2 items-center justify-start w-[5rem]`}>
                   {" "}
-                  <span>{menu.icon}</span>
-                  {menu.name}
+                  <span>{opt.icon}</span>
+                  {opt.name}
                 </div>
               </NavLink>
             );
