@@ -16,7 +16,7 @@ export const Contact = () => {
             autoComplete="off"
             autoCorrect="off"
             placeholder="joshep"
-            className="outline-none text-[1.2rem] bg-[#585f72] bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border-gray-600 hover:border-gray-400 border border-[#6e6e6ec8] text-white text-sm placeholder:text-[#6e6e6ec8] placeholder:text-[1rem] px-3 rounded-md h-[3rem]"
+            className="outline-none text-[1.22rem] bg-[#585f72] bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border-gray-600 hover:border-gray-400 border border-[#6e6e6ec8] text-white text-sm placeholder:text-[#6e6e6ec8] placeholder:text-[1rem] px-3 rounded-md h-[3rem]"
           />
           <input
             type="email"
@@ -26,7 +26,7 @@ export const Contact = () => {
             autoComplete="off"
             autoCorrect="off"
             placeholder="name@mail.com"
-            className="outline-none text-[1.2rem] bg-[#585f72] bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border-gray-600 hover:border-gray-400 border border-[#6e6e6ec8] text-white text-sm placeholder:text-[#6e6e6ec8] placeholder:text-[1rem] px-3 rounded-md h-[3rem]"
+            className="outline-none text-[1.22rem] bg-[#585f72] bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border-gray-600 hover:border-gray-400 border border-[#6e6e6ec8] text-white text-sm placeholder:text-[#6e6e6ec8] placeholder:text-[1rem] px-3 rounded-md h-[3rem]"
           />
           <textarea
             name="message"
@@ -34,11 +34,11 @@ export const Contact = () => {
             cols="30"
             rows="7"
             placeholder="Hello, I Want To Talk With You"
-            className="outline-none text-[1.2rem] bg-[#585f72] bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border-gray-600 hover:border-gray-400 border border-[#6e6e6ec8] text-white text-sm placeholder:text-[#6e6e6ec8] placeholder:text-[1rem] px-3 py-2 rounded-md"
+            className="outline-none text-[1.22rem] bg-[#585f72] bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border-gray-600 hover:border-gray-400 border border-[#6e6e6ec8] text-white text-sm placeholder:text-[#6e6e6ec8] placeholder:text-[1rem] px-3 py-2 rounded-md"
           ></textarea>
           <button
             type="submit"
-            className="w-full text-blue-800 text-md bg-[#4848482b] border-blue-800 border text-[1rem] h-[3rem] flex items-center justify-center gap-2 hover:border-[#8d8a8a] hover:scale-105 rounded-md hover:text-[#8d8a8a]"
+            className="w-full hover:text-blue-800 text-md bg-[#4848482b] hover:border-blue-800 border text-[1rem] h-[3rem] flex items-center justify-center gap-2 border-[#8d8a8a] hover:scale-[1.015] rounded-md text-[#8d8a8a]"
           >
             Send Your Message
             <IoIosSend className="text-[1.2rem]" />

@@ -10,7 +10,7 @@ export const SearchCountry = ({setSorting, search, setSearch, setRegion, totalCo
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="India, Pakistan, Bangladesh"
-          className="outline-none bg-transparent text-white text-md placeholder:text-[#6e6e6ec8] placeholder:text-[1.1rem] h-[3rem] w-[17rem]"
+          className="outline-none bg-transparent text-white text-[1rem] placeholder:text-[#6e6e6ec8] placeholder:text-[1.1rem] h-[3rem] w-[17rem]"
         />
         <FaSearch />
       </div>

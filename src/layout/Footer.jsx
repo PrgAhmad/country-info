@@ -4,6 +4,9 @@ import { LuMailPlus } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
 
 export const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
   const contact = [
     {
       icon: <FaLocationDot />,
@@ -43,10 +46,10 @@ export const Footer = () => {
           <span className="text-blue-700 ml-2">WorldAtlas</span>
         </p>
         <span className="flex gap-4">
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/about"}>About</NavLink>
-          <NavLink to={"/contact"}>Contact</NavLink>
-          <NavLink to={"/country"}>Country</NavLink>
+          <NavLink to={"/"} onClick={scrollToTop}>Home</NavLink>
+          <NavLink to={"/about"} onClick={scrollToTop}>About</NavLink>
+          <NavLink to={"/contact"} onClick={scrollToTop}>Contact</NavLink>
+          <NavLink to={"/country"} onClick={scrollToTop}>Country</NavLink>
         </span>
       </nav>
     </footer>

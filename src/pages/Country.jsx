@@ -40,6 +40,7 @@ export const Country = () => {
           region={region}
           setRegion={setRegion}
           totalCountries={totalCountries}
+          sorting={sorting}
           setSorting={setSorting} 
         />
         <div className="flex flex-wrap justify-center gap-8 md:px-[14rem] mb-10">
