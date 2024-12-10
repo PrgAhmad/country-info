@@ -10,10 +10,20 @@ export const MobileMenu = ({ menu, scrollToTop }) => {
     { name: "Country", icon: <FaGlobe /> },
   ];
 
+  if (menu) {
+    window.onscroll = () => {
+      window.scrollTo(0, 0);
+    };
+  } else {
+    window.onscroll = null;
+  }
+
   return (
     <>
       <span
-        className={`absolute z-40 left-0 top-[4rem] ${menu ? "block" : "hidden"} h-[90vh] w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 transition-all duration-[500ms] ease-in-out
+        className={`absolute z-40 left-0 top-[4rem] ${
+          menu ? "block" : "hidden"
+        } h-[90vh] w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 transition-all duration-[500ms] ease-in-out
 `}
       ></span>
       <span
@@ -31,9 +41,13 @@ export const MobileMenu = ({ menu, scrollToTop }) => {
                     : opt.name.toLowerCase()
                 }`}
                 onClick={scrollToTop}
-                className="hover:text-blue-600 hover:scale-110 font-semibold"
+                className="hover:text-blue-600 hover:scale-105 font-semibold"
               >
-                <div className={` ${menu && "animate"} flex gap-2 items-center justify-start w-[5rem]`}>
+                <div
+                  className={` ${
+                    menu && "animate"
+                  } flex gap-2 items-center justify-start w-[5rem]`}
+                >
                   {" "}
                   <span>{opt.icon}</span>
                   {opt.name}

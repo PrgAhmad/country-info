@@ -9,7 +9,7 @@ export const getCountryData = async() => {
   return response.data;
 };
 
-// export const getCountryByName = async(name) => {
-//   const response = await api.get(`name/${name}?fields=name,flags,population,capital,region,area,maps`);
-//   return response.data;
-// };
+export const getCountryByName = async(name) => {
+  const response = await api.get(`name/${name}`);
+  return response.data;
+};

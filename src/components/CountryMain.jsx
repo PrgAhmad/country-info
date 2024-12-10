@@ -2,6 +2,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { MdOutlinePublic } from "react-icons/md";
 import { MdPeopleAlt } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 
 export const CountryMain = ({ item }) => {
   const { capital, flags, name, population, region, area, maps } = item;
@@ -44,9 +45,11 @@ export const CountryMain = ({ item }) => {
         </p>
       </p>
       <div className="w-[90%] flex items-center justify-between absolute bottom-4">
-        <button className="text-blue-500 px-2 rounded-md border-blue-500 border-[0.2px] text-[0.75rem] h-[2.05rem] w-[7rem] flex items-center justify-center gap-2 hover:border-[#8d8a8a] hover:text-[#8d8a8a] hover:scale-105">
-          View More <FaArrowRight />
-        </button>
+        <NavLink to={`/country/${countryName}`}>
+          <button className="text-blue-500 px-2 rounded-md border-blue-500 border-[0.2px] text-[0.75rem] h-[2.05rem] w-[7rem] flex items-center justify-center gap-2 hover:border-[#8d8a8a] hover:text-[#8d8a8a] hover:scale-105">
+            View More <FaArrowRight />
+          </button>
+        </NavLink>
         <p className="flex items-center gap-2 italic text-white py-[0.35rem] px-3 rounded-md bg-[#48484864] border-[#6e6e6ec8] border-[0.2px] text-[0.9rem] h-auto tracking-wide">
           <span className="text-[1rem]">
             <MdOutlinePublic />
