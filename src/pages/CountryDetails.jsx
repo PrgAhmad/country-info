@@ -56,7 +56,12 @@ export const CountryDetails = () => {
           </div>
         </div>
       </div>
-      <button className="text-blue-600 px-1 font-semibold rounded-md flex justify-center items-center gap-2 border-blue-500 border-[0.1px] text-[0.9rem] h-[2.5rem] w-[10rem] hover:border-[#8d8a8a] hover:text-[#8d8a8a] hover:scale-105" onClick={() => navigate(-1)}>Back to Previous <FaArrowLeft /></button>
+      <button
+        className="text-blue-500 px-2 rounded-md border-blue-500 border-[0.2px] text-[0.8rem] h-[2.05rem] w-[7rem] flex items-center justify-center gap-3 hover:border-[#8d8a8a] hover:text-[#8d8a8a] hover:scale-105 font-medium"
+        onClick={() => navigate(-1)}
+      >
+        Go Back <FaArrowLeft />
+      </button>
     </section>
   );
 };
