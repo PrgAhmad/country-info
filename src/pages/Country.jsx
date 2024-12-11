@@ -39,7 +39,7 @@ export const Country = () => {
     return (
       <section className="min-h-screen py-12 mt-14 mb-16 relative">
         <button
-          className="fixed border border-[#5b5151c8] bg-[#232323] h-[3rem] w-[2.5rem] grid place-items-center bottom-6 right-6 p-2 rounded-full text-white"
+          className="z-50 fixed border border-[#7b7272c8] bg-[#232323] h-[3rem] w-[2.5rem] grid place-items-center bottom-6 right-6 p-2 rounded-full text-white"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <FaArrowUp />

@@ -1,7 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ContextProvider } from "./ContextApi";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
@@ -22,14 +19,18 @@ function App() {
         { path: "/about", element: <About /> },
         { path: "/contact", element: <Contact /> },
         { path: "/country", element: <Country /> },
-        { path: "/country/:name", element: <CountryDetails /> },
+        {
+          path: "/country/:name",
+          element: <CountryDetails />,
+          errorElement: <ErrorPage />,
+        },
       ],
     },
   ]);
 
   return (
     // <ContextProvider.Provider>
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
     // </ContextProvider.>
   );
 }

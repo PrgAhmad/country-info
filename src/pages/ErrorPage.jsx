@@ -1,8 +1,7 @@
 import { useRouteError, NavLink } from "react-router-dom";
 export const ErrorPage = () => {
-  // const error = useRouteError();
-  // console.log(error);
-  useRo
+  const error = useRouteError();
+  console.log(error);
 
   return (
     <section className=" dark:bg-gray-900 flex items-center h-[100vh]">

@@ -9,9 +9,13 @@ export const CountryDetails = () => {
   const [country, setCountry] = useState(null);
   useEffect(() => {
     const getData = async () => {
-      const res = await getCountryByName(name);
-      const data = res[0];
-      setCountry(data);
+      try{
+        const res = await getCountryByName(name);
+        const data = res[0];
+        setCountry(data);
+      } catch(e) {
+        console.log(e);
+      }
     };
     getData();
   }, []);
@@ -19,49 +23,82 @@ export const CountryDetails = () => {
     console.log(country.flags.png);
   }
 
-  return (
-    <section className="h-auto mb-[8rem] pb-4 mt-[6rem] sm:mt-[6rem] flex flex-col gap-4 justify-center items-center w-screen">
-      <div className="relative h-auto flex sm:items-center my-4 gap-6 flex-col sm:flex-row p-8 text-white text-sm w-auto px-4 py-8 bg-[#585f72] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-600 hover:border-gray-400 cursor-pointer">
-        <img
-          src={country?.flags.png}
-          alt={country?.name.common}
-          className="w-[75vw] h-[17rem] sm:w-[25rem] sm:h-[16rem] rounded-md"
-        />
-        <div className="flex flex-col gap-2">
-          <h1 className="text-[2.2rem] leading-8 font-semibold mb-4">
-            {country?.name.common}
-          </h1>
-          <p className="text-[1.5rem]">{country?.capital}</p>
-          <p>{country?.region}</p>
-          <p>{country?.continents}</p>
-          <p>{country?.population}</p>
-          <p>{country?.area}</p>
-          <p>{country?.maps.googleMaps}</p>
-          <p>{country?.name.official}</p>
-          <p>{country?.startOfWeek}</p>
-          <p>{country?.subregion}</p>
-          <p>{country?.timezones}</p>
-          <p>
-            {country?.demonyms?.eng?.f} - {country?.demonyms?.eng?.m}
-          </p>
-          <div className="flex gap-2">
-            <span>Borders:</span>
-            {country?.borders.map((border) => {
-              return (
-                <p className="bg-[#48484864] border-[#6e6e6ec8] border-[0.2px] px-2 rounded-md">
-                  {border}
-                </p>
-              );
-            })}
+  if (country === null) {
+    return (
+      <div className="h-screen grid place-items-center">
+        <div className="loader"></div>
+      </div>
+    );
+  } else {
+    return (
+      <section className="h-auto mb-[16rem] sm:mb-[8rem] pb-4 mt-[6rem] sm:mt-[6rem] flex flex-col gap-4 justify-center items-center w-screen px-4">
+        <div className="relative h-auto flex sm:items-center my-4 gap-12 flex-col sm:flex-row p-8 text-white text-sm w-[90vw] md:w-[70rem] px-4 sm:px-12 py-8 bg-[#585f72] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-600 hover:border-gray-400 cursor-pointer">
+          <div className="flex flex-col items-center gap-4">
+            <img
+              src={country?.flags.png}
+              alt={country?.name.common}
+              className="w-[85vw] sm:w-[25rem] sm:h-[16rem] rounded-md"
+            />
+            <h1 className="text-[2.2rem] leading-8 font-semibold mb-4">
+              {country?.name.common}
+            </h1>
+          </div>
+          <div className="flex flex-col gap-3">
+            <p className="text-[2rem] font-semibold">{country?.capital}</p>
+            <p className="text-[1.25rem]">{country?.name.official}</p>
+            <div className="flex items-center gap-6 justify-center text-white py-[0.35rem] px-3 rounded-md bg-[#48484864] border-[#6e6e6ec8] border-[0.2px] text-[0.9rem] h-auto tracking-wide">
+              <span className="flex flex-col gap-2">
+                <p className="text-[1rem]">Region</p>
+                <p className="text-[1.25rem]">{country?.region}</p>
+              </span>
+              <span className="flex flex-col gap-2">
+                <p className="text-[1rem]">Continent</p>
+                <p className="text-[1.25rem]">{country?.continents}</p>
+              </span>
+              <span className="flex flex-col gap-2">
+                <p className="text-[1rem]">Sub-region</p>
+                <p className="text-[1.25rem]">{country?.subregion}</p>
+              </span>
+            </div>
+            <p className="text-[1.25rem]">{country?.population}</p>
+            <p className="text-[1.25rem]">
+              {country?.area} km<sup>2</sup>
+            </p>
+            <p className="text-[1.25rem] underline">
+              <a href={country?.maps.googleMaps} target="_blank" rel="noreferrer">
+                {country?.maps.googleMaps}
+              </a>
+            </p>
+            <p className="text-[1.25rem]">{country?.startOfWeek}</p>
+            <p className="text-[1.25rem]">{country?.timezones}</p>
+            <p className="flex items-center gap-2 text-[1.2rem]">
+              <span className="bg-[#48484864] border-[#6e6e6ec8] border-[0.2px] px-4 py-1 rounded-md">
+                {country?.demonyms?.eng?.f}
+              </span>
+              <span>-</span>
+              <span className="bg-[#48484864] border-[#6e6e6ec8] border-[0.2px] px-4 py-1 rounded-md">
+                {country?.demonyms?.eng?.m}
+              </span>
+            </p>
+            <div className="flex gap-2 flex-wrap">
+              <span className="text-[1.25rem] w-full">Borders</span>
+              {country?.borders.map((border) => {
+                return (
+                  <p className="bg-[#48484864] border-[#6e6e6ec8] border-[0.2px] px-3 py-1 rounded-md text-[1.1rem]">
+                    {border}
+                  </p>
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
-      <button
-        className="text-blue-500 px-2 rounded-md border-blue-500 border-[0.2px] text-[0.8rem] h-[2.05rem] w-[7rem] flex items-center justify-center gap-3 hover:border-[#8d8a8a] hover:text-[#8d8a8a] hover:scale-105 font-medium"
-        onClick={() => navigate(-1)}
-      >
-        Go Back <FaArrowLeft />
-      </button>
-    </section>
-  );
+        <button
+          className="z-50 text-blue-500 px-2 rounded-md border-blue-500 border-[0.2px] text-[0.8rem] h-[2.05rem] w-[7rem] flex items-center justify-center gap-3 hover:border-[#8d8a8a] hover:text-[#8d8a8a] hover:scale-105 font-medium"
+          onClick={() => navigate(-1)}
+        >
+          Go Back <FaArrowLeft />
+        </button>
+      </section>
+    );
+  }
 };
