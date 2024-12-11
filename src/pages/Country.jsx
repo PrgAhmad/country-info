@@ -2,6 +2,7 @@ import { useEffect, useState, useTransition } from "react";
 import { getCountryData } from "../api/countryHomeApi";
 import { CountryMain } from "../components/CountryMain";
 import { SearchCountry } from "../components/SearchCountry";
+import { FaArrowUp } from "react-icons/fa";
 
 export const Country = () => {
   const [isPending, startTransition] = useTransition();
@@ -16,14 +17,17 @@ export const Country = () => {
       const data = await getCountryData();
       console.log(data);
       setTotalCountries(data.length);
-      if(sorting === "asc") {
-        setCountry(data.sort((a, b) => (a.name.common > b.name.common ? 1 : -1)));
-      }else if(sorting === "desc") {
-        setCountry(data.sort((a, b) => (a.name.common < b.name.common ? 1 : -1)));
+      if (sorting === "asc") {
+        setCountry(
+          data.sort((a, b) => (a.name.common > b.name.common ? 1 : -1))
+        );
+      } else if (sorting === "desc") {
+        setCountry(
+          data.sort((a, b) => (a.name.common < b.name.common ? 1 : -1))
+        );
       }
     });
   }, [sorting]);
-
 
   if (isPending) {
     return (
@@ -33,7 +37,13 @@ export const Country = () => {
     );
   } else {
     return (
-      <section className="min-h-screen py-12 mt-14">
+      <section className="min-h-screen py-12 mt-14 mb-16 relative">
+        <button
+          className="fixed border border-[#5b5151c8] bg-[#232323] h-[3rem] w-[2.5rem] grid place-items-center bottom-6 right-6 p-2 rounded-full text-white"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <FaArrowUp />
+        </button>
         <SearchCountry
           search={search}
           setSearch={setSearch}
@@ -41,7 +51,7 @@ export const Country = () => {
           setRegion={setRegion}
           totalCountries={totalCountries}
           sorting={sorting}
-          setSorting={setSorting} 
+          setSorting={setSorting}
         />
         <div className="flex flex-wrap justify-center gap-8 md:px-[14rem] mb-10">
           {country.map((item) => {

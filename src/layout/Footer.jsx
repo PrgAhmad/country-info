@@ -26,7 +26,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="w-full">
+    <footer className="w-full absolute bottom-0 h-auto">
       <section className="bg-[#1a1919] w-full h-auto py-2 flex flex-row justify-center flex-wrap sm:flex-row lg:justify-between items-center gap-4 px-[1rem] lg:px-[14rem]">
         {contact.map(({ icon, title, text }) => {
           return (

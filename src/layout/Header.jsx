@@ -12,14 +12,30 @@ import { DesktopMenu } from "../components/DesktopMenu";
 
 export const Header = () => {
   const [menu, setMenu] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   const scrollToTop = () => {
     setMenu(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // document.onscroll = (e) => {
+  //   if (window.scrollY > 100) {
+  //     setScrollY(window.scrollY);
+  //     setNavHidden(true);
+  //   } else if (scrollToTop) {
+  //     setNavHidden(false);
+  //   }
+  //   console.log(e);
+  // };
+
   return (
-    <nav className="fixed z-50 bg-[#232323] w-full px-6 lg:px-[14rem] md:h-[4rem] text-white flex justify-between items-center sm:flex-nowrap flex-wrap min-h-[4rem] gap-4 py-4">
+    <nav
+      className={`fixed ${
+        navHidden ? "hidden" : ""
+      } z-50 bg-[#232323] w-full px-6 lg:px-[14rem] md:h-[4rem] text-white flex justify-between items-center sm:flex-nowrap flex-wrap min-h-[4rem] gap-4 py-4`}
+    >
       <span className="w-full flex justify-between items-center">
         <h1 className="text-2xl font-semibold tracking-wide">WorldAtlas</h1>
         <span onClick={() => setMenu(!menu)}>
