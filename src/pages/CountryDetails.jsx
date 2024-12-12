@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCountryByName } from "../api/countryHomeApi";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaMapMarkerAlt } from "react-icons/fa";
 
 export const CountryDetails = () => {
   const navigate = useNavigate();
@@ -9,11 +9,11 @@ export const CountryDetails = () => {
   const [country, setCountry] = useState(null);
   useEffect(() => {
     const getData = async () => {
-      try{
+      try {
         const res = await getCountryByName(name);
         const data = res[0];
         setCountry(data);
-      } catch(e) {
+      } catch (e) {
         console.log(e);
       }
     };
@@ -31,21 +31,27 @@ export const CountryDetails = () => {
     );
   } else {
     return (
-      <section className="h-auto mb-[16rem] sm:mb-[8rem] pb-4 mt-[6rem] sm:mt-[6rem] flex flex-col gap-4 justify-center items-center w-screen px-4">
-        <div className="relative h-auto flex sm:items-center my-4 gap-12 flex-col sm:flex-row p-8 text-white text-sm w-[90vw] md:w-[70rem] px-4 sm:px-12 py-8 bg-[#585f72] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-600 hover:border-gray-400 cursor-pointer">
-          <div className="flex flex-col items-center gap-4">
+      <section className="h-auto mb-[4rem] sm:mb-[4rem] pb-4 mt-[6rem] sm:mt-[6rem] flex flex-col gap-4 justify-center items-center w-screen px-4">
+        <div className="relative h-auto flex sm:items-center my-4 gap-12 flex-col lg:flex-row p-8 text-white text-sm w-[90vw] lg:w-[70rem] px-4 sm:px-12 py-8 bg-[#585f72] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-600 hover:border-gray-400 cursor-pointer">
+          <div className="flex flex-col items-center gap-1">
             <img
               src={country?.flags.png}
               alt={country?.name.common}
-              className="w-[85vw] sm:w-[25rem] sm:h-[16rem] rounded-md"
+              className="max-w-[80vw] max-h-[20rem] sm:w-[25rem] sm:h-[16rem] rounded-md"
             />
-            <h1 className="text-[2.2rem] leading-8 font-semibold mb-4">
+            <h1 className="text-[2.2rem] leading-8 font-semibold mb-4 flex gap-4 flex-wrap mt-4">
               {country?.name.common}
+              <a
+                href={country?.maps.googleMaps}
+                className="text-[0.9rem] text-gray-400 hover:text-blue-800 border border-gray-400 p-[0.4rem] rounded-full hover:border-blue-500 grid place-content-center"
+              >
+                <FaMapMarkerAlt />
+              </a>
             </h1>
+            <p className="text-[1.25rem]">{country?.name.official}</p>
           </div>
           <div className="flex flex-col gap-3">
             <p className="text-[2rem] font-semibold">{country?.capital}</p>
-            <p className="text-[1.25rem]">{country?.name.official}</p>
             <div className="flex items-center gap-6 justify-center text-white py-[0.35rem] px-3 rounded-md bg-[#48484864] border-[#6e6e6ec8] border-[0.2px] text-[0.9rem] h-auto tracking-wide">
               <span className="flex flex-col gap-2">
                 <p className="text-[1rem]">Region</p>
@@ -64,11 +70,7 @@ export const CountryDetails = () => {
             <p className="text-[1.25rem]">
               {country?.area} km<sup>2</sup>
             </p>
-            <p className="text-[1.25rem] underline">
-              <a href={country?.maps.googleMaps} target="_blank" rel="noreferrer">
-                {country?.maps.googleMaps}
-              </a>
-            </p>
+
             <p className="text-[1.25rem]">{country?.startOfWeek}</p>
             <p className="text-[1.25rem]">{country?.timezones}</p>
             <p className="flex items-center gap-2 text-[1.2rem]">

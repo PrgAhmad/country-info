@@ -1,6 +1,18 @@
+import { useReducer } from "react";
 import { FaSearch } from "react-icons/fa";
 
-export const SearchCountry = ({setSorting, search, setSearch, setRegion, totalCountries}) => {
+export const SearchCountry = ({
+  setSorting,
+  search,
+  setSearch,
+  setRegion,
+  totalCountries,
+}) => {
+  const handleCountryOrder = (e) => {
+    setSorting(e.target.value);
+    e.target.style.color="red";
+  };
+
   return (
     <div className="flex justify-between mb-12 sm:px-16 lg:px-[14rem] sm:flex-row flex-col gap-4 px-3 items-center">
       <div className="flex items-center justify-between px-3 outline-none text-[1.2rem] bg-[#585f72] bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border-gray-600 hover:border-gray-400 border border-[#6e6e6ec8] text-white text-sm placeholder:text-[#6e6e6ec8] placeholder:text-[1rem] rounded-md h-[2.8rem]">
@@ -15,10 +27,18 @@ export const SearchCountry = ({setSorting, search, setSearch, setRegion, totalCo
         <FaSearch />
       </div>
       <div className="my-2 text-blue-600 text-[0.8rem] flex gap-4">
-        <button className="text-gray-400 border-gray-500 hover:text-blue-600 hover:border-blue-700 border px-3 py-1 rounded-md" onClick={() => setSorting("asc")}>
+        <button
+          value="asc"
+          className="text-gray-400 border-gray-500 hover:text-blue-600 hover:border-blue-700 border px-3 py-1 rounded-md"
+          onClick={handleCountryOrder}
+        >
           A to Z
         </button>
-        <button className="text-gray-400 border-gray-500 hover:text-blue-600 hover:border-blue-700 border px-3 py-1 rounded-md" onClick={() => setSorting("desc")}>
+        <button
+          value="desc"
+          className="text-gray-400 border-gray-500 hover:text-blue-600 hover:border-blue-700 border px-3 py-1 rounded-md"
+          onClick={handleCountryOrder}
+        >
           Z to A
         </button>
       </div>
