@@ -30,7 +30,7 @@ export const Footer = () => {
       <section className="bg-[#1a1919] w-full h-auto py-2 flex flex-row justify-center flex-wrap sm:flex-row lg:justify-between items-center gap-4 px-[1rem] lg:px-[14rem]">
         {contact.map(({ icon, title, text }) => {
           return (
-            <div className="flex gap-3 w-[10rem] items-center cursor-pointer scale-90 sm:scale-100">
+            <div key={title}  className="flex gap-3 w-[10rem] items-center cursor-pointer scale-90 sm:scale-100">
               <span className="text-2xl text-blue-800">{icon}</span>
               <span>
                 <p className="text-[0.7rem] font-thin text-slate-400">{text}</p>

@@ -1,8 +1,8 @@
-import { useRouteError, NavLink } from "react-router-dom";
+import { useRouteError, NavLink, useNavigate } from "react-router-dom";
 export const ErrorPage = () => {
   const error = useRouteError();
   console.log(error);
-
+  const navigate = useNavigate();
   return (
     <section className=" dark:bg-gray-900 flex items-center h-[100vh]">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
@@ -19,10 +19,10 @@ export const ErrorPage = () => {
           </p>
           <div className="flex sm:gap-2 gap-4 justify-center items-center flex-col sm:flex-row">
             <button className="text-blue-600 px-3 rounded-md  border-blue-500 border-[0.1px] text-[0.9rem] h-[2.8rem] w-[11rem] hover:border-[#8d8a8a] hover:text-[#8d8a8a] hover:scale-105">
-              <NavLink to="/">Back to Home Page</NavLink>
+              <NavLink to={"/"}>Back to Home Page</NavLink>
             </button>
             <button className="text-blue-600 px-3 rounded-md  border-blue-500 border-[0.1px] text-[0.9rem] h-[2.8rem] w-[11rem] hover:border-[#8d8a8a] hover:text-[#8d8a8a] hover:scale-105">
-              <NavLink to="/">Back to Previous Page</NavLink>
+              <NavLink onClick={() => navigate(-1)}>Back to Previous Page</NavLink>
             </button>
           </div>
         </div>

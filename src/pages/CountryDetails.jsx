@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useRouteError } from "react-router-dom";
 import { getCountryByName } from "../api/countryHomeApi";
 import { FaArrowLeft, FaMapMarkerAlt } from "react-icons/fa";
+import { ErrorPage } from "./ErrorPage";
 
 export const CountryDetails = () => {
   const navigate = useNavigate();
   const { name } = useParams();
   const [country, setCountry] = useState(null);
+  const [error , setError] = useState(false);
+  window.scrollTo(0, 0);
   useEffect(() => {
     const getData = async () => {
       try {
@@ -15,6 +18,7 @@ export const CountryDetails = () => {
         setCountry(data);
       } catch (e) {
         console.log(e);
+        setError(true);
       }
     };
     getData();
@@ -24,11 +28,15 @@ export const CountryDetails = () => {
   }
 
   if (country === null) {
-    return (
-      <div className="h-screen grid place-items-center">
-        <div className="loader"></div>
-      </div>
-    );
+    if(error){
+      return <ErrorPage />
+    }else{
+      return (
+        <div className="h-screen grid place-items-center">
+          <div className="loader"></div>
+        </div>
+      );
+    }
   } else {
     return (
       <section className="h-auto mb-[4rem] sm:mb-[4rem] pb-4 mt-[6rem] sm:mt-[6rem] flex flex-col gap-4 justify-center items-center w-screen px-4">

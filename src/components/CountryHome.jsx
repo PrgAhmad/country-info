@@ -1,15 +1,16 @@
 import countryData from "../api/countryData.json";
 import { MdPeopleAlt } from "react-icons/md";
 
+
 export const CountryHome = () => {
   const { countriesFacts } = countryData;
 
   return (
-    <div className="flex flex-wrap justify-center gap-8 md:px-[14rem] mb-10">
+    <div  className="flex flex-wrap justify-center gap-8 md:px-[14rem] mb-10">
       {countriesFacts.map(
-        ({ name, capital, population, area, fact, image }) => {
+        ({ name, capital, population, area, fact, image },idx) => {
           return (
-            <div className="relative text-white text-sm w-[21rem] px-4 py-8 bg-[#585f72] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-600 hover:border-gray-400 hover:scale-105 transition-all duration-300 ease-linear cursor-pointer">
+            <div data-aos="zoom-out" className="relative text-white text-sm w-[21rem] px-4 py-8 bg-[#585f72] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-600 hover:border-gray-400 hover:scale-105 transition-all duration-300 ease-linear cursor-pointer">
               <div className="flex justify-between">
                 <h3 className="text-[1.65rem] font-medium mb-4">{name}</h3>
                 <img

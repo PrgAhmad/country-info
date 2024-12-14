@@ -7,6 +7,9 @@ import { Country } from "./pages/Country";
 import { AppLayout } from "./layout/AppLayout";
 import { ErrorPage } from "./pages/ErrorPage";
 import { CountryDetails } from "./pages/CountryDetails";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 function App() {
   const router = createBrowserRouter([
@@ -22,7 +25,6 @@ function App() {
         {
           path: "/country/:name",
           element: <CountryDetails />,
-          errorElement: <ErrorPage />,
         },
       ],
     },

@@ -7,6 +7,7 @@
     position: relative;
     overflow-x: hidden;
     font-family: Ubuntu, sans-serif;
+    scroll-behavior: smooth;
 }
 .active{
     color: #2562E8;

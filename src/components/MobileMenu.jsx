@@ -35,6 +35,7 @@ export const MobileMenu = ({ menu, scrollToTop }) => {
           {menus.map((opt) => {
             return (
               <NavLink
+                key={opt.name}
                 to={`/${
                   opt.name.toLowerCase() === "home"
                     ? ""

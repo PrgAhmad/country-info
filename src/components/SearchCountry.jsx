@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
 export const SearchCountry = ({
@@ -6,11 +6,17 @@ export const SearchCountry = ({
   search,
   setSearch,
   setRegion,
-  totalCountries,
+  totalCountries, 
 }) => {
+
+  const [buttonColor, setButtonColor] = useState(true)
   const handleCountryOrder = (e) => {
-    setSorting(e.target.value);
-    e.target.style.color="red";
+    setSorting(e.target.value)
+    if(e.target.value === "asc") {
+      setButtonColor(true)
+    } else if(e.target.value === "desc") {  
+      setButtonColor(false)
+    }
   };
 
   return (
@@ -29,14 +35,14 @@ export const SearchCountry = ({
       <div className="my-2 text-blue-600 text-[0.8rem] flex gap-4">
         <button
           value="asc"
-          className="text-gray-400 border-gray-500 hover:text-blue-600 hover:border-blue-700 border px-3 py-1 rounded-md"
+          className={`${buttonColor ? "text-blue-600 border-blue-700" : "text-gray-400 border-gray-500"} hover:text-blue-600 hover:border-blue-700 border px-3 py-1 rounded-md`}
           onClick={handleCountryOrder}
         >
           A to Z
         </button>
         <button
           value="desc"
-          className="text-gray-400 border-gray-500 hover:text-blue-600 hover:border-blue-700 border px-3 py-1 rounded-md"
+          className={`${!buttonColor ? "text-blue-600 border-blue-700" : "text-gray-400 border-gray-500"} hover:text-blue-600 hover:border-blue-700 border px-3 py-1 rounded-md`}
           onClick={handleCountryOrder}
         >
           Z to A

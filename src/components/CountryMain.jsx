@@ -12,7 +12,7 @@ export const CountryMain = ({ item }) => {
   const mapsLink = maps.googleMaps;
 
   return (
-    <div className="text-white text-sm w-[21rem] px-4 py-8 bg-[#585f72] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-600 hover:border-gray-400 hover:scale-105 transition-all duration-300 ease-linear cursor-pointer pb-16 relative">
+    <div data-aos="zoom-out"  className="text-white text-sm w-[21rem] px-4 py-8 bg-[#585f72] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-gray-600 hover:border-gray-400 hover:scale-105 transition-all duration-300 ease-linear cursor-pointer pb-16 relative">
       <div className="flex justify-between gap-2">
         <h3 className="text-[1.65rem] leading-8 font-medium mb-4">
           {countryName}
@@ -20,7 +20,6 @@ export const CountryMain = ({ item }) => {
         <img
           src={flagsImage}
           alt=""
-          srcset=""
           className="h-[3.2rem] w-[5.5rem]"
         />
       </div>
@@ -35,7 +34,7 @@ export const CountryMain = ({ item }) => {
         </span>
         {population}
       </p>
-      <p className="flex flex-col text-[1.2rem] my-3">
+      <div className="flex flex-col text-[1.2rem] my-3">
         <span className="text-gray-400 text-[0.78rem]">Area</span>
         <p>
           {area}{" "}
@@ -43,7 +42,7 @@ export const CountryMain = ({ item }) => {
             Km<sup>2</sup>
           </span>
         </p>
-      </p>
+      </div>
       <div className="w-[90%] flex items-center justify-between absolute bottom-4">
         <NavLink to={`/country/${countryName}`}>
           <button className="text-blue-500 px-2 rounded-md border-blue-500 border-[0.2px] text-[0.75rem] h-[2.05rem] w-[7rem] flex items-center justify-center gap-2 hover:border-[#8d8a8a] hover:text-[#8d8a8a] hover:scale-105">

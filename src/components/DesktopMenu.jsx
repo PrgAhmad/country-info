@@ -15,6 +15,7 @@ export const DesktopMenu = ({ scrollToTop }) => {
       {menus.map((menu) => {
         return (
           <NavLink
+            key={menu.name}
             to={`/${
               menu.name.toLowerCase() === "home" ? "" : menu.name.toLowerCase()
             }`}

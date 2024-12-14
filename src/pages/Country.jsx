@@ -15,19 +15,23 @@ export const Country = () => {
   useEffect(() => {
     startTransition(async () => {
       const data = await getCountryData();
-      console.log(data);
       setTotalCountries(data.length);
-      if (sorting === "asc") {
-        setCountry(
-          data.sort((a, b) => (a.name.common > b.name.common ? 1 : -1))
-        );
-      } else if (sorting === "desc") {
-        setCountry(
-          data.sort((a, b) => (a.name.common < b.name.common ? 1 : -1))
-        );
-      }
+      setCountry([...data].sort((a, b) => (a.name.common > b.name.common ? 1 : -1)));
     });
-  }, [sorting]);
+  }, []);
+
+  useEffect(() => {
+    console.log(sorting);
+    if (sorting === "asc") {
+      setCountry(
+        [...country].sort((a, b) => (a.name.common > b.name.common ? 1 : -1))
+      );
+    } else if (sorting === "desc") {
+      setCountry(
+        [...country].sort((a, b) => (a.name.common < b.name.common ? 1 : -1))
+      );
+    }
+  },[sorting]);
 
   if (isPending) {
     return (
@@ -35,7 +39,8 @@ export const Country = () => {
         <div className="loader"></div>
       </div>
     );
-  } else {
+  } else if (country.length !== 0) {
+    console.log(country);
     return (
       <section className="min-h-screen py-12 mt-14 mb-16 relative">
         <button
@@ -54,12 +59,13 @@ export const Country = () => {
           setSorting={setSorting}
         />
         <div className="flex flex-wrap justify-center gap-8 md:px-[14rem] mb-10">
-          {country.map((item) => {
+          {country.map((item,idx) => {
+            if(idx === 0) console.log(item);
             if (
               item.name.common.toLowerCase().includes(search.toLowerCase()) &&
               (region === "" || item.region === region)
             ) {
-              return <CountryMain item={item} />;
+              return <CountryMain key={item.name.common} item={item} />;
             }
           })}
         </div>
