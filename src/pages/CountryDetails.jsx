@@ -69,10 +69,6 @@ export const CountryDetails = () => {
             </p>
             <div className="flex items-center gap-6 justify-center text-white py-[0.35rem] px-3 rounded-md text-[0.9rem] h-auto tracking-wide">
               <span className="flex flex-col items-center gap-2 justify-center text-white py-[0.35rem] px-3 rounded-md bg-[#48484864] border-[#6e6e6ec8] border-[0.2px] text-[0.9rem] h-auto tracking-wide">
-                <p className="text-[1rem]">Region</p>
-                <p className="text-[1.25rem]">{country?.region}</p>
-              </span>
-              <span className="flex flex-col items-center gap-2 justify-center text-white py-[0.35rem] px-3 rounded-md bg-[#48484864] border-[#6e6e6ec8] border-[0.2px] text-[0.9rem] h-auto tracking-wide">
                 <p className="text-[1rem]">Continent</p>
                 <p className="text-[1.25rem]">{country?.continents}</p>
               </span>
@@ -81,18 +77,24 @@ export const CountryDetails = () => {
                 <p className="text-[1.25rem]">{country?.subregion}</p>
               </span>
             </div>
-            <p className="m-auto w-auto flex gap-2 text-[#3665ff] bg-[#1A1919] border border-[#1f3788] text-lg px-2 py-[0.35rem] rounded-md">
-              <span className="text-2xl">
+            <p className="m-auto w-auto flex gap-2 text-[#3665ff] bg-[#1A1919] border border-[#1f3788] text-xl px-2 py-[0.35rem] rounded-md">
+              <span className="text-3xl">
                 <MdPeopleAlt />
               </span>
               {country?.population}
             </p>
-            <p className="text-[1.25rem]">
-              {country?.area} km<sup>2</sup>
+            <p className="text-[1.5rem] flex flex-col gap-2 items-start">
+              <span className="text-[1.2rem] text-gray-400">Area : </span>
+              <span>{country?.area} km<sup>2</sup></span>
             </p>
-
-            <p className="text-[1.25rem]">{weeksStartDay}</p>
-            <p className="text-[1.25rem]">{country?.timezones}</p>
+            <p className="text-[1.5rem] flex flex-col gap-2 items-end">
+              <span className="text-[1.2rem] text-gray-400">Start of Weeks : </span>
+              <span>{weeksStartDay}</span>
+            </p>
+            <p className="text-[1.5rem] flex flex-col gap-2 items-start mb-4">
+              <span className="text-[1.2rem] text-gray-400">Timezones : </span>
+              <span>{country?.timezones}</span>
+            </p>
             <p className="flex items-center gap-2 text-[1.2rem] m-auto">
               <span className="bg-[#48484864] border-[#6e6e6ec8] border-[0.2px] px-2 py-2 rounded-md flex gap-2">
               <FaVenus/>
